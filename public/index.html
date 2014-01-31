@@ -4,27 +4,35 @@
   <title>Advertising Platform</title>
 
   <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/angular.wizard/latest/angular-wizard.css">
 </head>
 
 <body ng-app="AdOnPlatform">
   <div ng-view></div>
+
+
+  <!-- External Dependancies -->
+  <script src="//code.jquery.com/jquery-2.1.0.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/lodash.js/2.4.1/lodash.js"></script>
+  <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.10/angular.min.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.10/angular-route.min.js"></script>
+  <script src="/js/vendor/angular-wizard/angular-wizard.js"></script>
+
+
+  <!-- Internal Dependancies -->
+  <script src="/primus/primus.js"></script>
+  <script src="/js/vendor/sonicnet/sonicnet.js"></script>
+
+
+  <!-- Application JS -->
+  <script src="/js/main.js"></script>
+
+  <script src="/js/services/PrimusService.js"></script>
+  <script src="/js/services/SonicnetService.js"></script>
+  <script src="/js/services/AdvertService.js"></script>
+
+  <script src="/js/controllers/AdvertCtrl.js"></script>
+  <script src="/js/controllers/AdvertListenCtrl.js"></script>
 </body>
-
-<!-- External Dependancies -->
-<script src="//code.jquery.com/jquery-2.1.0.min.js"></script>
-<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
-<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.10/angular.min.js"></script>
-<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.10/angular-route.min.js"></script>
-
-
-<!-- Internal Dependancies -->
-
-
-<!-- Application JS -->
-<script src="/js/main.js"></script>
-
-<script src="/js/services/AdvertService.js"></script>
-
-<script src="/js/controllers/AdvertCtrl.js"></script>
-
 </html>
