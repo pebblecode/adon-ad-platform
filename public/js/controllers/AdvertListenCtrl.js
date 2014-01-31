@@ -1,7 +1,7 @@
 angular.module('AdOnPlatform')
   .controller('AdvertListenCtrl',
-    ['$scope', 'WizardHandler', '$sonicnetListener',
-    function($scope, WizardHandler, $sonicnetListener) {
+    ['$scope', 'WizardHandler', '$sonicnetListener', '$primus', '$window',
+    function($scope, WizardHandler, $sonicnetListener, $primus, $window) {
     'use strict';
 
     $scope.finishedListening = function() {
@@ -17,6 +17,12 @@ angular.module('AdOnPlatform')
         .then(function(shortcode) {
           console.log(shortcode);
           $sonicnetListener.stop();
+
+          $primus.send('validateAdvertId', shortcode, function(result) {
+            if (result.url) {
+              $window.location.href = result.url;
+            }
+          });
         });
       WizardHandler.wizard().next();
     };

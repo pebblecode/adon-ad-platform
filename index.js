@@ -19,7 +19,9 @@ var options = {
   },
   database: {
     $filter: 'env',
-    production: {},
+    production: {
+      connectionString: process.env.MONGOLAB_URI
+    },
     $default: {
       connectionString: 'localhost/ad-platform'
     }
