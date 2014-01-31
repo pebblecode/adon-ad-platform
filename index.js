@@ -6,7 +6,6 @@ var options = {
   server: {
     $filter: 'env',
     production: {
-      host: '0.0.0.0',
       port: process.env.PORT
     },
     $default: {
