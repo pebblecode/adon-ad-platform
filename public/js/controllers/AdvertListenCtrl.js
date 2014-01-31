@@ -16,7 +16,9 @@ angular.module('AdOnPlatform')
       $sonicnetListener.start()
         .then(function(shortcode) {
           console.log(shortcode);
+          $sonicnetListener.stop();
         });
+      WizardHandler.wizard().next();
     };
 
     $scope.stopListening = function() {

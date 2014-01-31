@@ -1,8 +1,8 @@
 angular.module('Sonicnet', [])
   .value('SONIC_ALPHABET', ' abcdefghijklmnopqrstuvwxyz1234567890')
   .factory('$sonicnetListener',
-    ['SONIC_ALPHABET', '$rootScope',
-    function(SONIC_ALPHABET, $rootScope) {
+    ['SONIC_ALPHABET', '$rootScope', '$q',
+    function(SONIC_ALPHABET, $rootScope, $q) {
       /*global SonicCoder: true, SonicServer: true*/
       'use strict';
 
@@ -20,11 +20,18 @@ angular.module('Sonicnet', [])
         //coder: SonicnetListener.audibleRangeCoder
       });
 
-
       SonicnetListener.start = function() {
+        var deferred = $q.defer();
+
         if (SonicnetListener.server) {
           SonicnetListener.server.start();
         }
+
+        SonicnetListener.on(function(message) {
+          deferred.resolve(message);
+        })
+
+        return deferred.promise;
       };
 
       SonicnetListener.stop = function() {
