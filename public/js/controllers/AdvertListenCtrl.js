@@ -14,16 +14,14 @@ angular.module('AdOnPlatform')
         $sonicnetListener.stop();
       }
       $sonicnetListener.start()
-        .then(function(shortcode) {
-          console.log(shortcode);
-          $sonicnetListener.stop();
-
-          $primus.send('validateAdvertId', shortcode, function(result) {
-            if (result.url) {
-              $window.location.href = result.url;
-            }
-          });
+      .then(function(shortcode) {
+        $primus.send('validateAdvertId', shortcode, function(result) {
+          if (result.url) {
+            $sonicnetListener.stop();
+            $window.location.href = result.url;
+          }
         });
+      });
       WizardHandler.wizard().next();
     };
 
