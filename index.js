@@ -36,7 +36,7 @@ if (criteria === null) {
   console.error('Bad ID');
   process.exit(1);
 }
-criteria.env = 'development';
+criteria.env = process.env.NODE_ENV || 'development';
 var config = optionsStore.get('/', criteria);
 
 // Lets start the server
