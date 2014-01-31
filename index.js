@@ -7,7 +7,7 @@ var options = {
     $filter: 'env',
     production: {
       host: '0.0.0.0',
-      port: process.env.PORT
+      port: process.env.PORT,
       files: {
         relativeTo: __dirname + '/public'
       }
