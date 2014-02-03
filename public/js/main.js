@@ -10,7 +10,12 @@ angular.module('AdOnPlatform', ['ngRoute', 'Primus', 'Sonicnet', 'mgo-angular-wi
       })
       .when('/manage', {
         templateUrl: '/templates/manage.html',
-        controller: 'AdvertCtrl'
+        controller: 'AdvertCtrl',
+        resolve: {
+          adData: ['$adverts', function($adverts) {
+            $adverts.getAllAdverts();
+          }]
+        }
       })
       .when('/listen', {
         templateUrl: '/templates/listen.html',

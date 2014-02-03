@@ -1,30 +1,25 @@
-<div class="container">
-  <div class="row">
-    <div class="well">
+<div ng-include="'/includes/header.html'"></div>
 
-      <wizard on-finish="finishedListening()">
-        <step title="Welcome">
-          <h1>Welcome</h1>
-          <p>Welcome to the AdOn platform - this wizard will guide you through each step</p>
+<div class="well">
+  <wizard on-finish="finishedListening()">
+    <step title="Welcome">
+      <h1>Welcome</h1>
+      <p>Welcome to the AdOn platform - this wizard will guide you through each step</p>
 
-          <a class="btn btn-success" wz-next>Next</a>
-        </step>
+      <a class="btn btn-success" wz-next>Next</a>
+    </step>
 
-        <step title="Active you listening device">
-          <h1>Active you listening device</h1>
-          <p>Click the button below to start listening</p>
-          <a class="btn btn-success" wz-next="startListening()">Start Listening</a>
-        </step>
+    <step title="Active you listening device">
+      <h1>Active you listening device</h1>
+      <p>Click the button below to start listening</p>
+      <a class="btn btn-success" wz-next="startListening()">Start Listening</a>
+    </step>
 
-        <step title="Listen for an Advert">
-          <h1>Listen for an Advert</h1>
-          <p>Listen for an Advert</p>
-          <a class="btn btn-warning" wz-next="stopListening()">Stop Listening</a>
-        </step>
+    <step title="Listen for an Advert">
+      <h1>Listen for an Advert</h1>
+      <p>Listen for an Advert</p>
+      <a class="btn btn-warning" wz-next="stopListening()">Stop Listening</a>
+    </step>
 
-      </wizard>
-
-    </div>
-  </div>
+  </wizard>
 </div>
-

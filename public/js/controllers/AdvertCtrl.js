@@ -1,15 +1,19 @@
 angular.module('AdOnPlatform')
-  .controller('AdvertCtrl', ['$scope', 'Adverts', function($scope, Adverts) {
+  .controller('AdvertCtrl', ['$scope', '$adverts', function($scope, $adverts) {
+    'use strict';
 
-    $scope.adverts = Adverts.getAllAdverts();
+    $scope.adverts = $adverts;
 
     $scope.newAd = function() {
-      Adverts.add({});
-    }
+      $scope.adverts.add({});
+    };
 
     $scope.saveAd = function(index) {
-      Adverts.save(index);
-    }
+      $scope.adverts.save(index);
+    };
 
+    $scope.delAd = function(index) {
+      $scope.adverts.del(index);
+    }
 
   }]);
