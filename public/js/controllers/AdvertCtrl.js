@@ -18,6 +18,10 @@ angular.module('AdOnPlatform')
 
     $scope.delAd = function(index) {
       $scope.adverts.del(index);
-    }
+    };
+
+    $scope.playAd = function(index) {
+      $scope.adverts.play(index);
+    };
 
   }]);

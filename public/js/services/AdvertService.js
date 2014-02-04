@@ -1,5 +1,5 @@
 angular.module('AdOnPlatform')
-  .factory('$adverts', ['$http', '$primus', function($http, $primus) {
+  .factory('$adverts', ['$http', '$primus', '$sonicnetSender', function($http, $primus, $sonicnetSender) {
     'use strict';
     
     var Adverts = {};
@@ -50,7 +50,12 @@ angular.module('AdOnPlatform')
       $primus.send('deleteAdvert', ad, function(data) {
         Adverts.remove(index);
       })
-    }
+    };
+
+    Adverts.play = function(index) {
+      var ad = Adverts.data.ads[index];
+      $sonicnetSender.send(ad.shortcode);
+    };
 
     return Adverts;
   }]);

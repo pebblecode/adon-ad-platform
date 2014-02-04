@@ -36,7 +36,12 @@
         <td ng-switch-when="true">{{advert.shortcode}}</td>
         <td ng-switch-when="true">{{advert.url}}</td>
         <td ng-switch-when="true">{{advert.views}}</td>
-        <td ng-switch-when="true"><button ng-click="delAd($index)">Delete</button></td>
+        <td ng-switch-when="true">
+          <div class="btn-group">
+            <button class="btn btn-primary" ng-click="playAd($index)">Play</button>
+            <button class="btn btn-default" ng-click="delAd($index)">Delete</button>
+          </div>
+        </td>
       </tr>
     </tbody>
   </table>
