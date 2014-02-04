@@ -25,4 +25,9 @@ angular.module('AdOnPlatform', ['ngRoute', 'Primus', 'Sonicnet', 'mgo-angular-wi
         redirectTo: '/'
       });
 
+  }]).run(['$rootScope', '$location', function($rootScope, $location) {
+    'use strict';
+    $rootScope.isCurrentPath = function (path) {
+      return $location.path() == path;
+    };
   }]);

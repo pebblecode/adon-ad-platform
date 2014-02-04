@@ -23,10 +23,20 @@ var options = {
   database: {
     $filter: 'env',
     production: {
-      connectionString: process.env.MONGOLAB_URI
+      mongo: {
+        connectionString: process.env.MONGOLAB_URI
+      },
+      leveldb: {
+        connectionString: __dirname + '/database/ad-platform'
+      }
     },
     $default: {
-      connectionString: 'localhost/ad-platform'
+      mongo: {
+        connectionString: 'localhost/ad-platform'
+      },
+      leveldb: {
+        connectionString: __dirname + '/database/ad-platform'
+      }
     }
   }
 }

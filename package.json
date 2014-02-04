@@ -22,7 +22,9 @@
     "hoek": "~1.4.1",
     "confidence": "~0.11.1",
     "modella": "~0.2.6",
-    "modella-mongo": "~0.2.7"
+    "modella-mongo": "~0.2.7",
+    "modella-leveldb": "0.0.5",
+    "uid": "0.0.2"
   },
   "devDependencies": {
     "mocha": "~1.17.1"

@@ -8,6 +8,10 @@ angular.module('AdOnPlatform')
       $scope.adverts.add({});
     };
 
+    $scope.cancel = function(index) {
+      $scope.adverts.remove(index);
+    };
+
     $scope.saveAd = function(index) {
       $scope.adverts.save(index);
     };

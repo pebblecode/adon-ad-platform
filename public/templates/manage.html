@@ -1,6 +1,6 @@
 <div ng-include="'/includes/header.html'"></div>
 <div class="well">
-  <h1>Manage Adverts</h1>
+  <h1 class="tk-hotel-open">Manage Adverts</h1>
 
   <div class="btn-toolbar" role="toolbar">
     <div class="btn-group">
@@ -12,7 +12,6 @@
     <thead>
       <tr>
         <th>ID</th>
-        <th>Shortcode</th>
         <th>Url</th>
         <th>Views</th>
         <th>Actions</th>
@@ -20,17 +19,20 @@
     </thead>
 
     <tbody>
-      <tr ng-repeat="advert in adverts.data.ads" ng-switch on="!!advert._id">
+      <tr ng-repeat="advert in adverts.data.ads" ng-switch on="!!advert.id">
         <th ng-switch-when="false" scope="row">&nbsp;</th>
-        <td ng-switch-when="false"><input type="text" ng-model="advert.shortcode" /></td>
-        <td ng-switch-when="false"><input type="text" ng-model="advert.url" /></td>
-        <td ng-switch-when="false">&nbsp;</td>
-        <td ng-switch-when="false"><button ng-click="saveAd($index)">Save</button></td>
+        <td ng-switch-when="false"><input type="url" ng-model="advert.url" value="http://" ng-required /></td>
+        <td ng-switch-when="false">0</td>
+        <td ng-switch-when="false">
+          <div class="btn-group">
+            <button class="btn btn-default" ng-click="saveAd($index)">Save</button>
+            <button class="btn btn-default" ng-click="cancel($index)">Cancel</button>
+          </div>
+          </td>
 
-        <th ng-switch-when="true" scope="row">{{advert._id}}</th>
-        <td ng-switch-when="true">{{advert.shortcode}}</td>
+        <th ng-switch-when="true" scope="row">{{advert.id}}</th>
         <td ng-switch-when="true">{{advert.url}}</td>
-        <td ng-switch-when="true">{{advert.views || 0}}</td>
+        <td ng-switch-when="true">{{advert.views}}</td>
         <td ng-switch-when="true"><button ng-click="delAd($index)">Delete</button></td>
       </tr>
     </tbody>

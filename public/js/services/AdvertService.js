@@ -30,9 +30,17 @@ angular.module('AdOnPlatform')
       });
     };
 
+    Adverts.getAdvertById = function(id, callback) {
+      $primus.send('getAdvertById', id, callback);
+    };
+
+    Adverts.incrementAdvertView = function(id, callback) {
+      $primus.send('incrementAdvertView', id, callback);
+    };
+
     Adverts.save = function(index) {
       var ad = Adverts.data.ads[index];
-      $primus.send('newAdvert', ad, function(data) {
+      $primus.send('saveAdvert', ad, function(data) {
         Adverts.replace(index, data);
       });
     };
